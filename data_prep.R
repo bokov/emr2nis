@@ -10,11 +10,33 @@
 #+ init, message=FALSE,echo=FALSE
 # init -----
 inputdata <- './HSC20170563N.zip';
+githost <- 'https://github.com/';
+gitrepo <- 'bokov/emr2nis'
 if(!require('devtools')) install.packages('devtools');
+if(!require('trailR')) install_github('bokov/trailR');
 if(!require('rio')) install_github('bokov/rio');
 if(!require('tidbits')) install_github('bokov/tidbits');
 instrequire(c('data.table','dplyr'));
 
+.version <- trailR::gitstamp(prod=TRUE);
+if(identical(.version,'TEST_OUTPUT_DO_NOT_USE')||length(.version)==0){
+  .version <- c('master','TEST_OUTPUT_DO_NOT_USE');
+};
+if(tidbits:::git_(sprintf('rev-list --count origin/%s...HEAD',.version[1])
+                  ,intern=T,VERBOSE=F)!=0){
+  .version[2] <- 'TEST_OUTPUT_DO_NOT_USE'};
+#' #### Reproducibility notice
+#' 
+#' This script relies on a private dataset that will be provided to 
+#' authorized collaborators on HSC20170563N separately. No simulated version of
+#' the data currently exists for testing. 
+#' 
+#' However, the code is decoupled from the data and is available for anybody
+#' to review at `r sprintf('in the [%2$s commit](%3$s%4$s/tree/%2$s) of the [%4$s](%3$s%4$s) repository **%1$s** branch',.version[1],.version[2],githost,gitrepo)`
+#' 
+#' The most current version of this compiled report can be viewed at 
+#' https://rpubs.com/bokov/emr2nis_data_prep
+#' 
 #' ***
 #' #### Read lookup tables
 rc_disp <- fread('recode_dispuniform.csv');
