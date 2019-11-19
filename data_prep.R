@@ -79,7 +79,7 @@ dat00[,DISPUNIFORM := submulti(v000_Sts__ptnts_cd,rc_disp,method='full')][
 #' **Caveat**: there is usually more than one payer code per patient-year,
 #' and some guesswork was involved in matching them to the closest unified
 #' HCUP code. Please see 
-#' `r sprintf('[recode_dispuniform.csv](%1$s%2$s/blob/%3$s/recode_dispuniform.csv)',githost,gitrepo,.version[2])`
+#' `r sprintf('[recode_pay1.csv](%1$s%2$s/blob/%3$s/recode_pay1.csv)',githost,gitrepo,.version[2])`
 #' and draw your own conclusions.
 dat00[,PAY1 := submulti(v001_Fncl_ptnts_cd,rc_pay1,method='full')];
 #' 
