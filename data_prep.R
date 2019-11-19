@@ -1,6 +1,6 @@
 #' ---
 #' title: "Adapting Epic/Sunrise Data to Mimic HCUP NIS"
-#' subtitle: "Single-file self-contained screport"
+#' subtitle: "Single-file self-contained scri-port"
 #' author: 
 #'   - "Alex F. Bokov"
 #'   - "Joel Michalek"
@@ -32,9 +32,9 @@ if(tidbits:::git_(sprintf('rev-list --count origin/%s...HEAD',.version[1])
 #' the data currently exists for testing. 
 #' 
 #' However, the code is decoupled from the data and is available for anybody
-#' to review at `r sprintf('in the [%2$s commit](%3$s%4$s/tree/%2$s) of the [%4$s](%3$s%4$s) repository **%1$s** branch',.version[1],.version[2],githost,gitrepo)`
+#' to review in the `r sprintf('[%2$s commit](%3$s%4$s/tree/%2$s) of the [%4$s](%3$s%4$s) repository **%1$s** branch',.version[1],.version[2],githost,gitrepo)`
 #' 
-#' The most current version of this compiled report can be viewed at 
+#' The most current compiled version of this report can be viewed at 
 #' https://rpubs.com/bokov/emr2nis_data_prep
 #' 
 #' ***
