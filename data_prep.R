@@ -63,7 +63,9 @@ dat00 <- raw00;
 #' 
 #' **Caveat**: there is often more than one discharge code per patient-year,
 #' and some guesswork was involved in matching them to the closest unified
-#' HCUP code. Please see `recode_dispuniform.csv` and draw your own conclusions.
+#' HCUP code. Please see 
+#' `r sprintf('[recode_dispuniform.csv](%1$s%2$s/blob/%3$s/recode_dispuniform.csv)',githost,gitrepo,.version[2])` 
+#' and draw your own conclusions.
 #' Note in particular that `6`, 
 #' [Home Health Care](https://www.hcup-us.ahrq.gov/db/vars/dispuniform/nisnote.jsp)
 #' does not have any equivalent codes in our local data under our current ETL.
@@ -76,7 +78,9 @@ dat00[,DISPUNIFORM := submulti(v000_Sts__ptnts_cd,rc_disp,method='full')][
 #' 
 #' **Caveat**: there is usually more than one payer code per patient-year,
 #' and some guesswork was involved in matching them to the closest unified
-#' HCUP code. Please see `recode_pay1.csv` and draw your own conclusions.
+#' HCUP code. Please see 
+#' `r sprintf('[recode_dispuniform.csv](%1$s%2$s/blob/%3$s/recode_dispuniform.csv)',githost,gitrepo,.version[2])`
+#' and draw your own conclusions.
 dat00[,PAY1 := submulti(v001_Fncl_ptnts_cd,rc_pay1,method='full')];
 #' 
 #' ***
