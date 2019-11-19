@@ -1,0 +1,12 @@
+match,recodeto,rawcode,i2b2_label,HCUP_label
+white,1,white,White,White
+more than on,6,more than on,More than one,Other
+@,.,@,Missing,Missing
+black,2,black,Black,Black
+unknown,.,unknown,Unknown,Missing
+unknown/othe,6,unknown/othe,Unknown/Other,Other
+am indian,5,am indian,American Indian,Native American
+asian,4,asian,Asian,Asian or Pacific Islander
+other,6,other,Other,Other
+i choose not,.,i choose not,I choose not to respond,Missing
+pac islander,4,pac islander,Pacific Islander,Asian or Pacific Islander

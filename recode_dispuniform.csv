@@ -1,0 +1,13 @@
+match,recodeto,rawcode,i2b2_label,HCUP_label
+EX,20,DischStat:EX,Expired,Died
+AMA,7,DischStat:AMA,Against Medical Advice (AMA),Against Medical Advice (AMA)
+AW,7,DischStat:AW,Absent without leave (AW),Against Medical Advice (AMA)
+IP,2,DischStat:IP,Other Inpatient Hospital,Transfer to Short-term Hospital
+HS,5,DischStat:HS,Hospice,"Transfer Other: Includes Skilled Nursing Facility (SNF), Intermediate Care Facility (ICF), Another Type of Facility"
+ICF,5,DischStat:ICF,Nursing Home or ICF,"Transfer Other: Includes Skilled Nursing Facility (SNF), Intermediate Care Facility (ICF), Another Type of Facility"
+Rehab,5,DischStat:Rehab,Rehab,"Transfer Other: Includes Skilled Nursing Facility (SNF), Intermediate Care Facility (ICF), Another Type of Facility"
+SN,5,DischStat:SN,Skilled Nursing Facility,"Transfer Other: Includes Skilled Nursing Facility (SNF), Intermediate Care Facility (ICF), Another Type of Facility"
+HO,1,DischStat:HO,Home (Selfcare),Routine
+SH,1,DischStat:SH,Still in Hospital,Routine
+UN,99,DischStat:UN,Unknown,"Discharge alive, destination unknown"
+@,.,DischStat:@,No Information,Missing
