@@ -10,7 +10,7 @@
 #' 
 #+ init, message=FALSE,echo=FALSE
 # init -----
-inputdata <- './HSC20170563N.zip';
+inputdata <- '/var/dbuilder/DF_sample_HSC20170563N_nis_uhs.v4.1.zip';
 githost <- 'https://github.com/';
 gitrepo <- 'bokov/emr2nis'
 if(!require('devtools')) install.packages('devtools');
