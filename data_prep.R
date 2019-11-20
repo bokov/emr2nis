@@ -123,7 +123,7 @@ dat00[,`:=`(diabetes=1*v010_mlts__ptnts_tf
             ,laproscopic_neph=1*v004_Lprscp_ptnts_tf
             ,robotic_neph=1*v003_prcdrs_ptnts_tf
             ,neph=1*v005_nphrctm_ptnts_tf
-            #,neph=1*(v005_nphrctm_ptnts_tf|v006_nphrctm_ptnts)
+            #,neph=1*(v005_nphrctm_ptnts_tf|v006_nphrctm_ptnts_tf)
             ,h_neph=0)];
 #' 
 #' ***
