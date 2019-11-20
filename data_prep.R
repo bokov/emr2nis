@@ -3,8 +3,9 @@
 #' subtitle: "Single-file self-contained scri-port"
 #' author: 
 #'   - "Alex F. Bokov"
+#'   - "Meredith N. Zozus"
 #'   - "Joel Michalek"
-#' date: sys.Date()
+#' date: '`r format(Sys.Date(), "%B %d, %Y")`'
 #' ---
 #' 
 #+ init, message=FALSE,echo=FALSE
@@ -16,7 +17,7 @@ if(!require('devtools')) install.packages('devtools');
 if(!require('trailR')) install_github('bokov/trailR');
 if(!require('rio')) install_github('bokov/rio');
 if(!require('tidbits')) install_github('bokov/tidbits');
-instrequire(c('data.table','dplyr'));
+instrequire(c('data.table','dplyr','pander'));
 
 .version <- trailR::gitstamp(prod=TRUE);
 if(identical(.version,'TEST_OUTPUT_DO_NOT_USE')||length(.version)==0){
@@ -115,7 +116,7 @@ dat00[v002_Ethnct__ptnts_cd=='DEM|ETHNICITY:Y'
 #' 
 #' **Caveat**: `robotic_neph` is not necessarily a robotically assisted 
 #' nephrectomy, both here and in the SAS code. The code 17.4 is for robotc
-#' assisted procedures _in general_.
+#' assisted procedures _in general_. Likewise for `laproscopic_neph`.
 dat00[,`:=`(diabetes=1*v010_mlts__ptnts_tf
             ,liver=1*v009_intrhptc_ptnts_tf
             ,kidney=1*v008_Mlgnt_ptnts_tf
@@ -155,6 +156,24 @@ dat2013 <- dat00[!patient_num %in% dat2012$patient_num &
                  start_date < as.Date('2014-01-01')];
 #' ***
 #' #### Summary
+#' 
+#' Number of distinct patients without a previous diagnosis of kidney cancer 
+#' seen at UHS in 2012 and how many of them were diagnosed with kidney or with 
+#' liver cancer that year.
+#+ table2012, echo=FALSE
+with(dat2012,table(factor(hispanic,labels=c('Non-Hispanic','Hispanic'))
+                   ,factor(interaction(kidney,liver),levels=c('0.0','1.0','0.1')
+                           ,labels=c('Neither','Kidney','Liver')))) %>% 
+  addmargins() %>% pander
+#' 
+#' Number of distinct patients without a previous diagnosis of kidney cancer 
+#' seen at UHS in 2013 and how many of them were diagnosed with kidney or with 
+#' liver cancer that year.
+#+ table2013, echo=FALSE
+with(dat2013,table(factor(hispanic,labels=c('Non-Hispanic','Hispanic'))
+                   ,factor(interaction(kidney,liver),levels=c('0.0','1.0','0.1')
+                           ,labels=c('Neither','Kidney','Liver')))) %>% 
+  addmargins() %>% pander
 #' ***
 #' #### Save files
 export(dat2012[,..requestedcols],'dat2012.csv');
